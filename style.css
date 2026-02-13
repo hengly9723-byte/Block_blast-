@@ -1,0 +1,246 @@
+/* style-mobile.css - improved for phones */
+* {
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* removes gray tap on mobile */
+}
+
+body {
+    background: linear-gradient(145deg, #1a2639 0%, #0d1b2a 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    padding: 10px; /* added padding for small screens */
+}
+
+.game-container {
+    background: #213555;
+    padding: 1rem 1rem 1.5rem; /* reduced padding on mobile */
+    border-radius: 2.5rem;
+    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.7), inset 0 1px 4px rgba(255, 255, 255, 0.2);
+    border: 2px solid #3e5a7c;
+    max-width: 100%; /* ensures container fits screen */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2e3f5e;
+    padding: 0.5rem 1.2rem; /* smaller padding on mobile */
+    border-radius: 2.5rem;
+    margin-bottom: 1rem;
+    box-shadow: inset 0 3px 6px #0f1a2b, 0 5px 0 #0f1f33;
+    color: #f3e9d2;
+    text-shadow: 0 2px 0 #0a121c;
+}
+
+.score-box {
+    background: #1e2b41;
+    padding: 0.2rem 1.2rem; /* smaller */
+    border-radius: 2rem;
+    font-size: 1.5rem; /* smaller on mobile */
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #f5d67b;
+    box-shadow: inset 0 -3px 0 #0f1a2b, 0 3px 0 #0b1623;
+}
+
+.reset-btn {
+    background: #d68b4a;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0.2rem 1.2rem;
+    border-radius: 2rem;
+    color: #1f2b3f;
+    box-shadow: 0 6px 0 #8b572a, inset 0 2px 10px #ffcf9a;
+    cursor: pointer;
+    transition: 0.07s ease;
+    border: 1px solid #f8c48c;
+    /* Combined appearance property - both standard and vendor-prefixed */
+    appearance: none;
+    -webkit-appearance: none; /* for iOS Safari */
+    -moz-appearance: none;    /* for Firefox */
+}
+
+.reset-btn:active {
+    transform: translateY(6px);
+    box-shadow: 0 0px 0 #8b572a, inset 0 2px 8px #ffb96e;
+}
+
+.arena {
+    display: flex;
+    gap: 1rem; /* reduced gap on mobile */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* grid – 8x8 playing field */
+.grid-board {
+    background: #1e3146;
+    padding: 0.6rem; /* smaller */
+    border-radius: 2rem;
+    box-shadow: inset 0 -5px 0 #0f1a2b, 0 15px 18px rgba(0, 0, 0, 0.5);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 3px; /* smaller gap on mobile */
+    background: #273c5c;
+    padding: 8px; /* smaller */
+    border-radius: 1.5rem;
+}
+
+.cell {
+    width: min(8vw, 46px); /* responsive sizing */
+    height: min(8vw, 46px); /* responsive sizing */
+    max-width: 46px;
+    max-height: 46px;
+    min-width: 32px; /* ensures cells aren't too tiny */
+    min-height: 32px;
+    background: #304b70;
+    border-radius: 10px; /* slightly smaller radius */
+    box-shadow: inset 0 -3px 0 #19273b, inset 0 0 0 2px #4c6d96;
+    transition: 0.1s ease;
+}
+
+.cell.filled {
+    background: #f3b33d;
+    background: radial-gradient(circle at 30% 30%, #ffd966, #e09d32);
+    box-shadow: inset 0 -3px 0 #aa6d1a, inset 0 0 10px #ffe28a;
+}
+
+/* upcoming blocks panel - stacks vertically on mobile */
+.queue-panel {
+    background: #1e3146;
+    border-radius: 2rem;
+    padding: 1rem 0.8rem;
+    box-shadow: inset 0 -5px 0 #0f1a2b, 0 10px 18px #00000055;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: 140px;
+    width: 100%; /* takes full width on small screens */
+    max-width: 200px; /* but not too wide */
+    margin: 0 auto;
+}
+
+.queue-title {
+    color: #dfcba4;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: #2a3f5b;
+    padding: 0.2rem 1rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+}
+
+.block-preview {
+    background: #21334a;
+    border-radius: 1.5rem;
+    padding: 1rem 0.5rem;
+    box-shadow: inset 0 -3px 0 #0e1a29;
+    width: 100%;
+}
+
+.block-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* flexible columns */
+    gap: 4px;
+    justify-content: center;
+    margin: 0 auto 8px; /* spacing between blocks */
+    max-width: 120px;
+}
+
+.block-grid:last-child {
+    margin-bottom: 0;
+}
+
+.preview-cell {
+    width: 100%; /* takes full width of grid cell */
+    aspect-ratio: 1/1; /* keeps square shape */
+    background: #304b70;
+    border-radius: 6px;
+    box-shadow: inset 0 -2px 0 #19273b;
+}
+
+.preview-cell.filled {
+    background: #f3b33d;
+    background: radial-gradient(circle at 30% 30%, #ffd966, #e09d32);
+    box-shadow: inset 0 -3px 0 #aa6d1a;
+}
+
+.footer-message {
+    margin-top: 1rem;
+    background: #0f1f2f;
+    color: #b3d0ee;
+    font-size: 0.9rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 2rem;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border: 1px solid #3f6190;
+    width: 100%;
+}
+
+/* landscape orientation support */
+@media (orientation: landscape) and (max-height: 600px) {
+    .game-container {
+        padding: 0.8rem;
+    }
+    
+    .arena {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .grid-board {
+        padding: 0.4rem;
+    }
+    
+    .cell {
+        width: min(7vh, 40px);
+        height: min(7vh, 40px);
+        min-width: 28px;
+        min-height: 28px;
+    }
+    
+    .queue-panel {
+        max-width: 160px;
+    }
+}
+
+/* small phones (under 400px) */
+@media (max-width: 400px) {
+    .cell {
+        width: min(7vw, 38px);
+        height: min(7vw, 38px);
+        min-width: 26px;
+        min-height: 26px;
+    }
+    
+    .game-container {
+        padding: 0.8rem 0.5rem 1rem;
+    }
+    
+    .header {
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .score-box {
+        font-size: 1.2rem;
+        padding: 0.1rem 0.8rem;
+    }
+    
+    .reset-btn {
+        font-size: 0.9rem;
+        padding: 0.1rem 0.8rem;
+    }
+}

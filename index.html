@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Blast! · classic match</title>
+    <!-- external CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <span class="score-box" id="scoreDisplay">0</span>
+            <button class="reset-btn" id="resetGame">⟳ new</button>
+        </div>
+
+        <div class="arena">
+            <!-- main 8x8 board -->
+            <div class="grid-board">
+                <div class="grid" id="boardGrid"></div>
+            </div>
+
+            <!-- right panel: three upcoming blocks -->
+            <div class="queue-panel">
+                <div class="queue-title">🔷 next blocks</div>
+                <div id="queueContainer" class="block-preview">
+                    <!-- three dynamic previews injected via js -->
+                </div>
+                <div class="footer-message" id="statusMsg">place blocks · fill lines</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- external JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
